@@ -30,6 +30,13 @@ get "/get_task" do
 	Tasker.get_task.to_json
 end
 
+post "/complete_task" do
+	task = JSON.parse(params[:task])
+	results = JSON.parse(params[:results])
+	Tasker.complete_task(task, results)
+	puts "Success"
+end
+
 get "/tasker_info" do
 	Tasker.task_info
 end

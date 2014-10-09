@@ -19,10 +19,13 @@ GEM
     i18n (0.6.11)
     json (1.8.1)
     minitest (5.4.2)
+    netrc (0.7.7)
     pg (0.17.1)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
+    rest_client (1.7.3)
+      netrc (~> 0.7.7)
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.4.5)
@@ -44,6 +47,7 @@ DEPENDENCIES
   activerecord
   activesupport
   pg
+  rest_client
   shotgun
   sinatra
   sinatra-activerecord
