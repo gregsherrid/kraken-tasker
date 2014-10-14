@@ -1,4 +1,4 @@
-DB_CONFIG = YAML.load(File.open("./config.yml"))["database"]
+DB_CONFIG = YAML.load(File.open("./config/config.yml"))["database"]
 
 def init_db
 	url = "postgres://#{DB_CONFIG['username']}:#{DB_CONFIG['password']}@#{DB_CONFIG['host']}:#{DB_CONFIG['port']}/#{DB_CONFIG['db_name']}"

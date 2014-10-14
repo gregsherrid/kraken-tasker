@@ -10,7 +10,7 @@ require 'yaml'
 worker_file = ENV['K_WORKER'] || "prime_worker"
 require "./worker/#{worker_file}.rb"
 
-TASKER_CONFIG = YAML.load(File.open("./config.yml"))["tasker"]
+TASKER_CONFIG = YAML.load(File.open("./config/config.yml"))["tasker"]
 
 MIN_CYCLE_TIME = 0.3 #seconds
 HOST = "#{TASKER_CONFIG["host"]}:#{TASKER_CONFIG["port"]}"#"http://localhost:4567"
