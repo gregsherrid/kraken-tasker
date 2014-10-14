@@ -1,13 +1,4 @@
-# (c) Gregory Sherrid, 2014-10-6
-
-# PROJECT_DIR = "/Users/kraken/Documents/Web/kraken-tasker"
-
-require "sinatra"
-require "sinatra/activerecord"
 require "json"
-
-tasker_file = ENV['K_TASKER'] || "prime_tasker"
-require "./tasker/#{tasker_file}"
 require "./tasker/db_config"
 
 init_db

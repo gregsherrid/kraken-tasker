@@ -1,4 +1,7 @@
 # (c) Gregory Sherrid, 2014-10-7
+require "sinatra"
+require "sinatra/activerecord"
+require "./tasker/kraken_tasker.rb"
 
 class Tasker
 	def self.get_task

@@ -1,6 +1,6 @@
-# (c) Gregory Sherrid, 2014-10-7
-
+require "./worker/kraken_worker.rb"
 class Worker
+	extend KrakenWorker
 
 	def self.work(task)
 		task.map do |val|
@@ -19,7 +19,6 @@ class Worker
 			end
 		end
 	end
-
-	# test
-	# puts work([0,1,2,3,4,5,6,7,8,9])
 end
+
+Worker.worker_loop
