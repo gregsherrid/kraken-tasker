@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007063613) do
+ActiveRecord::Schema.define(version: 20141013233129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,5 +24,16 @@ ActiveRecord::Schema.define(version: 20141007063613) do
   end
 
   add_index "integer_for_primes", ["value"], name: "index_integer_for_primes_on_value", using: :btree
+
+  create_table "workers", force: true do |t|
+    t.string   "ip"
+    t.datetime "last_request"
+    t.integer  "requested"
+    t.integer  "completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "workers", ["ip"], name: "index_workers_on_ip", using: :btree
 
 end

@@ -1,43 +1,47 @@
 # (c) Gregory Sherrid, 2014-10-6
 
+# PROJECT_DIR = "/Users/kraken/Documents/Web/kraken-tasker"
+
 require "sinatra"
 require "sinatra/activerecord"
 require "json"
 
 tasker_file = ENV['K_TASKER'] || "prime_tasker"
-require "./tasker/#{tasker_file}.rb"
-
-def init_db
-	db = URI.parse("postgres://kraken_tasker:kotsea@localhost/kraken_tasker_db")
-
-	ActiveRecord::Base.establish_connection(
-	  :adapter  => db.scheme == "postgres" ? "postgresql" : db.scheme,
-	  :host     => db.host,
-	  :username => db.user,
-	  :password => db.password,
-	  :database => db.path[1..-1],
-	  :encoding => "utf8"
-	)
-end
+require "./tasker/#{tasker_file}"
+require "./tasker/db_config"
 
 init_db
+
+class Worker < ActiveRecord::Base
+end
 
 get "/" do
 	"Get to work, minions!"
 end
 
 get "/get_task" do
+	worker = Worker.find_or_create_by(ip: request.ip)
+	worker.requested = worker.requested.to_i + 1
+	worker.last_request = Time.now
+	worker.save
+
 	Tasker.get_task.to_json
 end
 
 post "/complete_task" do
+	worker = Worker.find_or_create_by(ip: request.ip)
+	worker.completed = worker.completed.to_i + 1
+	worker.save
+
 	task = JSON.parse(params[:task])
 	results = JSON.parse(params[:results])
 	Tasker.complete_task(task, results)
-	puts "Success"
+	"Success"
 end
 
-get "/tasker_info" do
-	Tasker.task_info
+get "/info" do
+	@workers = Worker.all.sort_by(&:last_request).reverse
+	@task_info = Tasker.task_info
+	erb :info
 end
 

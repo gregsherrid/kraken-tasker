@@ -1,0 +1,9 @@
+database:
+  host: krakendb.c2hgn4ze4olm.us-west-2.rds.amazonaws.com
+  db_name: prime_tracker_db
+  port: 5432
+  username: prime_tracker_admin
+  password: swordfish440202
+tasker:
+  host: http://ec2-54-69-219-155.us-west-2.compute.amazonaws.com
+  port: 4567

@@ -1,0 +1,26 @@
+== Sinatra/1.4.5 has taken the stage on 4567 for development with backup from Thin
+127.0.0.1 - - [13/Oct/2014 14:05:38] "GET / HTTP/1.1" 200 21 0.0320
+127.0.0.1 - - [13/Oct/2014 14:05:39] "GET / HTTP/1.1" 200 21 0.0009
+127.0.0.1 - - [13/Oct/2014 14:05:47] "GET / HTTP/1.1" 200 21 0.0007
+127.0.0.1 - - [13/Oct/2014 14:05:48] "GET / HTTP/1.1" 200 21 0.0010
+127.0.0.1 - - [13/Oct/2014 14:05:52] "GET / HTTP/1.1" 200 21 0.0007
+127.0.0.1 - - [13/Oct/2014 14:05:53] "GET / HTTP/1.1" 200 21 0.0009
+127.0.0.1 - - [13/Oct/2014 14:05:53] "GET / HTTP/1.1" 200 21 0.0007
+127.0.0.1 - - [13/Oct/2014 14:05:54] "GET /favicon.ico HTTP/1.1" 404 448 0.0011
+127.0.0.1 - - [13/Oct/2014 14:05:54] "GET / HTTP/1.1" 200 21 0.0007
+127.0.0.1 - - [13/Oct/2014 14:05:54] "GET /favicon.ico HTTP/1.1" 404 448 0.0009
+127.0.0.1 - - [13/Oct/2014 14:05:54] "GET / HTTP/1.1" 200 21 0.0008
+127.0.0.1 - - [13/Oct/2014 14:05:54] "GET /favicon.ico HTTP/1.1" 404 448 0.0010
+127.0.0.1 - - [13/Oct/2014 14:05:54] "GET / HTTP/1.1" 200 21 0.0007
+127.0.0.1 - - [13/Oct/2014 14:05:55] "GET / HTTP/1.1" 200 21 0.0006
+127.0.0.1 - - [13/Oct/2014 14:05:55] "GET /favicon.ico HTTP/1.1" 404 448 0.0009
+127.0.0.1 - - [13/Oct/2014 14:05:55] "GET / HTTP/1.1" 200 21 0.0009
+127.0.0.1 - - [13/Oct/2014 14:05:56] "GET / HTTP/1.1" 200 21 0.0007
+127.0.0.1 - - [13/Oct/2014 14:05:56] "GET /favicon.ico HTTP/1.1" 404 448 0.0010
+== Sinatra has ended his set (crowd applauds)
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on localhost:4567, CTRL+C to stop
+Waiting for 2 connection(s) to finish, can take up to 30 sec, CTRL+C to stop now
+Stopping ...
+Stopping ...

@@ -2,7 +2,7 @@
 
 class Tasker
 	def self.get_task
-		IntegerForPrime.where("prime IS NULL").sample(100).map(&:value)
+		IntegerForPrime.where("prime IS NULL").order("Random()").first(500).map(&:value)
 	end
 
 	def self.complete_task(task, results)
@@ -20,7 +20,7 @@ class Tasker
 		processed = IntegerForPrime.where("prime IS NOT NULL").count
 		progress = (processed.to_f / total).round(2)
 		primes = IntegerForPrime.where("prime IS TRUE").count
-		["Integers loaded: #{total}",
+		["<b>Prime Tasker</b>", "Integers loaded: #{total}",
 			"Integers processed: #{processed}, (#{progress})",
 			"Primes Found: #{primes}"].join("<br>")
 	end
@@ -35,5 +35,9 @@ class IntegerForPrime < ActiveRecord::Base
 			IntegerForPrime.create(value: val)
 		end
 		true
+	end
+
+	def self.reset_primes
+		IntegerForPrime.update_all(prime: nil)
 	end
 end

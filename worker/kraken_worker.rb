@@ -1,14 +1,19 @@
 # (c) Gregory Sherrid, 2014-10-7
 
+# PROJECT_DIR = "/Users/kraken/Documents/Web/kraken-tasker"
+
 require "json"
 require "rest_client"
 require "active_support/all"
+require 'yaml'
 
 worker_file = ENV['K_WORKER'] || "prime_worker"
 require "./worker/#{worker_file}.rb"
 
+TASKER_CONFIG = YAML.load(File.open("./config.yml"))["tasker"]
+
 MIN_CYCLE_TIME = 0.3 #seconds
-HOST = "http://localhost:4567"
+HOST = "#{TASKER_CONFIG["host"]}:#{TASKER_CONFIG["port"]}"#"http://localhost:4567"
 
 def main_loop
 	i = 0
